@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+:root {
+  --airbnb-coral: #FF385C;
+  --airbnb-coral-dark: #E00B41;
+  --airbnb-gradient: linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%);
+  --airbnb-text: #222222;
+  --airbnb-secondary: #717171;
+  --airbnb-border: #EBEBEB;
+  --airbnb-light-bg: #F7F7F7;
+}
+
+/* Dark Mode Theme Variables */
+html.dark {
+  --airbnb-text: #F1F1F1;
+  --airbnb-secondary: #A0A0A0;
+  --airbnb-border: #2D2D2D;
+  --airbnb-light-bg: #1A1A1A;
+}
+
+html.dark body {
+  background-color: #121212;
+  color: #F1F1F1;
+}
+
+html.dark .bg-white {
+  background-color: #1E1E1E !important;
+  color: #F1F1F1;
+}
+
+html.dark .bg-gray-50 {
+  background-color: #161616 !important;
+}
+
+html.dark .bg-gray-100 {
+  background-color: #242424 !important;
+}
+
+html.dark .text-gray-900,
+html.dark .text-gray-800 {
+  color: #FFFFFF !important;
+}
+
+html.dark .text-gray-700,
+html.dark .text-gray-600 {
+  color: #CCCCCC !important;
+}
+
+html.dark .text-gray-500 {
+  color: #999999 !important;
+}
+
+html.dark .border-gray-200,
+html.dark .border-gray-300,
+html.dark .border-gray-100 {
+  border-color: #2E2E2E !important;
+}
+
+html.dark .shadow-xs,
+html.dark .shadow-sm,
+html.dark .shadow-md,
+html.dark .shadow-xl {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6) !important;
+}
+
+body {
+  color: var(--airbnb-text);
+  background-color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Circular", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Gradient Button Effect */
+.btn-airbnb-primary {
+  background: linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%);
+  color: #FFFFFF;
+  font-weight: 600;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+.btn-airbnb-primary:hover {
+  opacity: 0.95;
+}
+
+.btn-airbnb-primary:active {
+  transform: scale(0.98);
+}
+
+/* Category Bar Scrollbar Hide */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Airbnb Price Pin for Leaflet */
+.airbnb-price-pin {
+  background: #FFFFFF;
+  color: #222222;
+  font-weight: 700;
+  font-size: 13.5px;
+  padding: 5px 10px;
+  border-radius: 24px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  white-space: nowrap;
+  transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+  cursor: pointer;
+  letter-spacing: -0.2px;
+}
+
+.airbnb-price-pin:hover, .airbnb-price-pin.active {
+  background: #222222;
+  color: #FFFFFF;
+  transform: scale(1.1);
+  z-index: 999;
+}
