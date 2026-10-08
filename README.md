@@ -821,53 +821,6 @@ python test_backend.py
 | README and documentation | Implemented | This document |
 
 ---
-
-## Interview Talking Points
-
-**Why SQLite?**
-It is a real relational database with foreign keys and SQL, and it needs no server, so evaluators can run the project in minutes. The SQLAlchemy layer keeps a move to PostgreSQL straightforward.
-
-**Why FastAPI?**
-Typed request handling with Pydantic, modular routers, and automatic OpenAPI documentation make the API easy to build, validate and demonstrate.
-
-**Why SQLAlchemy?**
-It maps tables to Python models, expresses relationships and queries in code, and keeps the persistence layer database-agnostic.
-
-**Why a relational schema?**
-Users, listings, bookings, reviews and wishlists are connected entities with clear relationships. Foreign keys enforce those links and joins answer questions like "bookings for this listing" directly.
-
-**How do you prevent double booking?**
-The backend queries confirmed bookings for the listing and rejects the request if `existing_start < requested_end` and `existing_end > requested_start`.
-
-**Where is business logic implemented?**
-In the FastAPI backend, mainly in the bookings router for overlap detection and pricing, and in the host router for dashboard aggregation.
-
-**How does availability work?**
-It is derived from confirmed booking rows. The booked-dates endpoint returns those ranges, the calendar disables them, and the booking endpoint re-checks them.
-
-**How does the booking flow work?**
-Select dates, fetch booked ranges, submit booking, server validates overlap, server computes price, booking is saved, and the dates become unavailable.
-
-**How does the host CRUD work?**
-Create, update and delete requests go through the listings endpoints with Pydantic validation. Images are stored as separate rows linked to the listing.
-
-**Why should validation happen on the backend?**
-The client cannot be trusted. It can be stale or bypassed, so only server-side validation reliably protects the no-double-booking rule.
-
-**What happens if two users book the same dates simultaneously?**
-With a check-then-insert approach, both requests could pass the check before either commits. The production fix is to make the check and insert atomic, using a transaction with locking or a database-level exclusion constraint.
-
-**How would you scale this system?**
-Add indexes on booking dates, caching for the feed, object storage and a CDN for images, PostgreSQL with read replicas, and stateless API instances behind a load balancer.
-
-**What would you change for production?**
-Real authentication and authorisation, payment integration, PostgreSQL with migrations, transactional booking, image storage, monitoring, rate limiting and CI/CD.
-
-**How would you migrate from SQLite to PostgreSQL?**
-Change the database URL, install a PostgreSQL driver, adopt Alembic for schema migrations, review column types, and move the existing data across with a one-off script.
-
----
-
 ## Author
 
 Aarzu Sharma
