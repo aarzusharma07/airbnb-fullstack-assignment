@@ -7,8 +7,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Seed sqlite database if not present
-RUN python -c "from app.database import init_db; init_db()"
+# Initialize and seed database
+RUN python -c "from app.database import engine, Base, get_db; from app.seed_data import seed_database; Base.metadata.create_all(bind=engine); db = next(get_db()); seed_database(db); db.close()"
 
 ENV PORT=8000
 EXPOSE 8000
