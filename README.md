@@ -62,6 +62,7 @@ The application starts with seeded data (users, listings, images, bookings and r
 | Resource | Location |
 |---|---|
 | Live Demo | https://airbnb-fullstack-assignment-pi.vercel.app/ |
+| Backend API | https://airbnb-fullstack-assignment-3.onrender.com/ |
 | GitHub Repository | https://github.com/aarzusharma07/airbnb-fullstack-assignment |
 | API Documentation | [`http://localhost:8000/docs` (Swagger UI, available when the backend is running locally)](https://airbnb-fullstack-assignment-3.onrender.com/docs)
 |
