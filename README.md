@@ -61,7 +61,7 @@ The application starts with seeded data (users, listings, images, bookings and r
 
 | Resource | Location |
 |---|---|
-| Live Demo | To be deployed (a `render.yaml` deployment blueprint is included in the repository) |
+| Live Demo | https://airbnb-fullstack-assignment-pi.vercel.app/ |
 | GitHub Repository | https://github.com/aarzusharma07/airbnb-fullstack-assignment |
 | API Documentation | `http://localhost:8000/docs` (Swagger UI, available when the backend is running locally) |
 
